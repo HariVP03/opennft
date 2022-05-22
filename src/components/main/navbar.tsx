@@ -94,7 +94,7 @@ const Navbar = () => {
                         bg: "pink.300",
                     }}
                 >
-                    Metamask
+                    Connect to Metamask
                 </Button>
                 {/* </Flex> */}
             </Flex>
