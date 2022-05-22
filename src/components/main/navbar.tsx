@@ -39,9 +39,10 @@ const Navbar = () => {
                 align={"center"}
             >
                 <Flex
-                    flex={{ base: 1, md: "auto" }}
+                    flex={{ base: 1, md: 1 }}
                     ml={{ base: -2 }}
                     display={{ base: "flex", md: "none" }}
+                    // justify="center"
                 >
                     <IconButton
                         onClick={onToggle}
@@ -56,12 +57,7 @@ const Navbar = () => {
                         aria-label={"Toggle Navigation"}
                     />
                 </Flex>
-                <Flex
-                    flex={{ base: 1 }}
-                    justify="center"
-                    align="center"
-                    // bg="red"
-                >
+                <Flex flex={{ base: 1, md: 1 }} justify="center" align="center">
                     <Text
                         textAlign={useBreakpointValue({
                             base: "center",
@@ -87,15 +83,6 @@ const Navbar = () => {
                     spacing={6}
                 >
                     <Button
-                        as={"a"}
-                        fontSize={"sm"}
-                        fontWeight={400}
-                        variant={"link"}
-                        href={"#"}
-                    >
-                        Sign In
-                    </Button>
-                    <Button
                         display={{ base: "none", md: "inline-flex" }}
                         fontSize={"sm"}
                         fontWeight={600}
@@ -106,7 +93,7 @@ const Navbar = () => {
                             bg: "pink.300",
                         }}
                     >
-                        Sign Up
+                        Metamask
                     </Button>
                 </Stack>
             </Flex>
@@ -295,7 +282,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: "Inspiration",
+        label: "Explore",
         children: [
             {
                 label: "Explore Design Work",
@@ -324,10 +311,7 @@ const NAV_ITEMS: Array<NavItem> = [
             },
         ],
     },
-    {
-        label: "Learn Design",
-        href: "#",
-    },
+
     {
         label: "Hire Designers",
         href: "#",
