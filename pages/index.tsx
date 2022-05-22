@@ -1,18 +1,8 @@
+import { Layout } from "@components/main";
 import React from "react";
-import { Spacer, Flex } from "@chakra-ui/react";
-
-import { Header, Main, Cards, Footer } from "@components";
 
 const Home: React.FC = () => {
-    return (
-        <Flex direction="column" minH="100vh">
-            <Header />
-            <Main />
-            <Cards />
-            <Spacer />
-            <Footer />
-        </Flex>
-    );
+    return <Layout>123</Layout>;
 };
 
 export default Home;
