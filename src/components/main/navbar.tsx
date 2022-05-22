@@ -57,13 +57,12 @@ const Navbar = () => {
                         aria-label={"Toggle Navigation"}
                     />
                 </Flex>
-                <Flex flex={{ base: 1, md: 1 }} justify="center" align="center">
+                <Flex flex={{ base: 1, md: 1 }} justify="start" align="center">
                     <Text
                         textAlign={useBreakpointValue({
                             base: "center",
                             md: "left",
                         })}
-                        // fontFamily={"heading"}
                         h="full"
                         my="auto"
                         color={useColorModeValue("gray.800", "white")}
@@ -71,31 +70,33 @@ const Navbar = () => {
                         OpenNFTs
                     </Text>
 
-                    <Flex display={{ base: "none", md: "flex" }} ml={10}>
+                    <Flex
+                        // bg="red"
+                        display={{ base: "none", md: "flex" }}
+                        ml={10}
+                        flex="1"
+                    >
                         <DesktopNav />
                     </Flex>
                 </Flex>
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={"flex-end"}
-                    direction={"row"}
-                    spacing={6}
+                <Button
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontSize={"sm"}
+                    fontWeight={600}
+                    zIndex="3"
+                    // bg="red"
+                    color={"white"}
+                    // position="absolute"
+                    bg={"pink.400"}
+                    // href={"#"}
+                    _hover={{
+                        bg: "pink.300",
+                    }}
                 >
-                    <Button
-                        display={{ base: "none", md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={600}
-                        color={"white"}
-                        bg={"pink.400"}
-                        // href={"#"}
-                        _hover={{
-                            bg: "pink.300",
-                        }}
-                    >
-                        Metamask
-                    </Button>
-                </Stack>
+                    Metamask
+                </Button>
+                {/* </Flex> */}
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
