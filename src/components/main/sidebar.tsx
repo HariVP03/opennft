@@ -1,4 +1,9 @@
-import { HamburgerIcon, SettingsIcon } from "@chakra-ui/icons";
+import {
+    CalendarIcon,
+    ChatIcon,
+    HamburgerIcon,
+    SettingsIcon,
+} from "@chakra-ui/icons";
 import { Button, chakra, Flex, IconButton } from "@chakra-ui/react";
 import { Navbutton } from "@components/button";
 import { useState } from "react";
@@ -39,9 +44,15 @@ const Sidebar = () => {
                     <HamburgerIcon />
                 </Button>
             </Flex>
-            <Flex mt={5} align="center" direction="column">
+            <Flex gap={3} mt={5} align="center" direction="column">
+                <Navbutton sidebarClosed={!isOpen} icon={<CalendarIcon />}>
+                    Dates
+                </Navbutton>
+                <Navbutton sidebarClosed={!isOpen} icon={<ChatIcon />}>
+                    Chat
+                </Navbutton>
                 <Navbutton sidebarClosed={!isOpen} icon={<SettingsIcon />}>
-                    123
+                    Settings
                 </Navbutton>
             </Flex>
         </Flex>

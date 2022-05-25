@@ -16,10 +16,16 @@ const NavButton: React.FC<{
             _focus={{ outline: "0" }}
             bg="transparent"
             rounded="2xl"
+            // h="50px"
             justifyContent={sidebarClosed ? "center" : "start"}
         >
             {icon}
-            <Text mx={3} my="auto" display={sidebarClosed ? "none" : "auto"}>
+            <Text
+                fontWeight="normal"
+                mx={3}
+                my="auto"
+                display={sidebarClosed ? "none" : "auto"}
+            >
                 {children}
             </Text>
         </Button>
