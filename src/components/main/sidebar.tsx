@@ -4,7 +4,7 @@ import {
     HamburgerIcon,
     SettingsIcon,
 } from "@chakra-ui/icons";
-import { Button, chakra, Flex, IconButton } from "@chakra-ui/react";
+import { Button, chakra, Flex, Icon, IconButton } from "@chakra-ui/react";
 import { Navbutton } from "@components/button";
 import { useState } from "react";
 import {
@@ -58,7 +58,12 @@ const Sidebar = () => {
                     _hover={{ color: "white" }}
                     onClick={toggleClose}
                 >
-                    {isOpen ? <AiOutlineAlignLeft /> : <AiOutlineAlignRight />}
+                    {isOpen ? (
+                        <Icon as={AiOutlineAlignLeft} />
+                    ) : (
+                        // <AiOutlineAlignRight />
+                        <Icon as={AiOutlineAlignRight} />
+                    )}
                 </Button>
             </Flex>
             <Flex gap={3} mt={5} align="center" direction="column">

@@ -6,7 +6,9 @@ import React from "react";
 const Home: React.FC = () => {
     return (
         <Layout>
-            <Flex color="white">123</Flex>
+            <Flex color="white" px={9}>
+                123
+            </Flex>
         </Layout>
     );
 };
