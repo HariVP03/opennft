@@ -7,6 +7,14 @@ import {
 import { Button, chakra, Flex, IconButton } from "@chakra-ui/react";
 import { Navbutton } from "@components/button";
 import { useState } from "react";
+import {
+    AiOutlineAlignLeft,
+    AiOutlineAlignRight,
+    AiOutlineHome,
+    AiOutlineSave,
+} from "react-icons/ai";
+import { MdOutlineExplore } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -50,22 +58,25 @@ const Sidebar = () => {
                     _hover={{ color: "white" }}
                     onClick={toggleClose}
                 >
-                    <HamburgerIcon />
+                    {isOpen ? <AiOutlineAlignLeft /> : <AiOutlineAlignRight />}
                 </Button>
             </Flex>
             <Flex gap={3} mt={5} align="center" direction="column">
                 <Navbutton
                     selected
                     sidebarClosed={!isOpen}
-                    icon={<CalendarIcon />}
+                    icon={<AiOutlineHome />}
                 >
-                    Dates
+                    Home
                 </Navbutton>
-                <Navbutton sidebarClosed={!isOpen} icon={<ChatIcon />}>
-                    Chat
+                <Navbutton sidebarClosed={!isOpen} icon={<MdOutlineExplore />}>
+                    Explore
                 </Navbutton>
-                <Navbutton sidebarClosed={!isOpen} icon={<SettingsIcon />}>
-                    Settings
+                <Navbutton sidebarClosed={!isOpen} icon={<AiOutlineSave />}>
+                    Saved
+                </Navbutton>
+                <Navbutton sidebarClosed={!isOpen} icon={<CgProfile />}>
+                    Profile
                 </Navbutton>
             </Flex>
         </Flex>

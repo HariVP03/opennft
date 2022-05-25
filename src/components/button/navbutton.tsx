@@ -19,9 +19,9 @@ const NavButton: React.FC<{
             justifyContent={sidebarClosed ? "center" : "start"}
             color={selected ? "white" : "auto"}
         >
-            {icon}
+            <Text my="auto">{icon}</Text>
             <Text
-                fontWeight="normal"
+                fontWeight="500"
                 mx={3}
                 my="auto"
                 fontSize="sm"
