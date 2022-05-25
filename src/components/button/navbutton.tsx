@@ -14,16 +14,17 @@ const NavButton: React.FC<{
             _hover={{ bg: "gray.700" }}
             _active={{}}
             _focus={{ outline: "0" }}
-            bg="transparent"
+            bg={!selected ? "transparent" : "button.nav.selected"}
             rounded="2xl"
-            // h="50px"
             justifyContent={sidebarClosed ? "center" : "start"}
+            color={selected ? "white" : "auto"}
         >
             {icon}
             <Text
                 fontWeight="normal"
                 mx={3}
                 my="auto"
+                fontSize="sm"
                 display={sidebarClosed ? "none" : "auto"}
             >
                 {children}

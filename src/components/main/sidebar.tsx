@@ -27,10 +27,19 @@ const Sidebar = () => {
             <Flex
                 align="center"
                 h="fit-content"
+                pt={2}
                 w="full"
                 justify="space-between"
             >
-                <chakra.h2 ml="2" display={isOpen ? "auto" : "none"}>
+                <chakra.h2
+                    color="blue.200"
+                    ml="5"
+                    fontWeight="700"
+                    fontSize="20px"
+                    display={isOpen ? "auto" : "none"}
+                    textDecoration="underline"
+                    textDecorationThickness="2px"
+                >
                     OpenNFT
                 </chakra.h2>
 
@@ -45,7 +54,11 @@ const Sidebar = () => {
                 </Button>
             </Flex>
             <Flex gap={3} mt={5} align="center" direction="column">
-                <Navbutton sidebarClosed={!isOpen} icon={<CalendarIcon />}>
+                <Navbutton
+                    selected
+                    sidebarClosed={!isOpen}
+                    icon={<CalendarIcon />}
+                >
                     Dates
                 </Navbutton>
                 <Navbutton sidebarClosed={!isOpen} icon={<ChatIcon />}>
