@@ -10,4 +10,16 @@ export default {
     main: {
         100: "#282c34",
     },
+    bg: {
+        1: "#1f2235",
+        2: "#24293d",
+    },
+    button: {
+        nav: {
+            selected: "#393373",
+        },
+        filled: {
+            bg: "#6e4eec",
+        },
+    },
 };

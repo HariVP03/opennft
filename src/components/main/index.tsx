@@ -1,11 +1,14 @@
+import { Flex } from "@chakra-ui/react";
 import React from "react";
-import Navbar from "./navbar";
+import Sidebar from "./sidebar";
 
 export const Layout: React.FC = ({ children }) => {
     return (
         <>
-            <Navbar />
-            {children}
+            <Flex bg="bg.1">
+                <Sidebar />
+                {children}
+            </Flex>
         </>
     );
 };

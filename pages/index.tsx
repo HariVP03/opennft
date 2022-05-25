@@ -6,24 +6,7 @@ import React from "react";
 const Home: React.FC = () => {
     return (
         <Layout>
-            <Flex
-                flexWrap="wrap"
-                gap="10"
-                justify="space-around"
-                w="full"
-                p={5}
-            >
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-                <NFTCard />
-            </Flex>
+            <Flex color="white">123</Flex>
         </Layout>
     );
 };
