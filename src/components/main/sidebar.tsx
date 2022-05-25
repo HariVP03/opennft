@@ -1,5 +1,6 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, SettingsIcon } from "@chakra-ui/icons";
 import { Button, chakra, Flex, IconButton } from "@chakra-ui/react";
+import { Navbutton } from "@components/button";
 import { useState } from "react";
 
 const Sidebar = () => {
@@ -16,6 +17,7 @@ const Sidebar = () => {
             w={isOpen ? "15vw" : "3vw"}
             h="100vh"
             color="gray.400"
+            direction="column"
         >
             <Flex
                 align="center"
@@ -36,6 +38,11 @@ const Sidebar = () => {
                 >
                     <HamburgerIcon />
                 </Button>
+            </Flex>
+            <Flex mt={5} align="center" direction="column">
+                <Navbutton sidebarClosed={!isOpen} icon={<SettingsIcon />}>
+                    123
+                </Navbutton>
             </Flex>
         </Flex>
     );
