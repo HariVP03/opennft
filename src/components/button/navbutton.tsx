@@ -1,6 +1,5 @@
-import { Button, Icon, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import { JSXElementConstructor, ReactElement } from "react";
-import { IconType } from "react-icons";
 
 const NavButton: React.FC<{
     selected?: boolean;
@@ -10,7 +9,6 @@ const NavButton: React.FC<{
 }> = ({ children, selected = false, icon, sidebarClosed = false, onClick }) => {
     return (
         <Button
-            // leftIcon={icon}
             w="75%"
             _hover={{ bg: "gray.700" }}
             _active={{}}
