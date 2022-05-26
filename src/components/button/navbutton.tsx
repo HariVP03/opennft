@@ -6,7 +6,8 @@ const NavButton: React.FC<{
     selected?: boolean;
     icon?: ReactElement<any, string | JSXElementConstructor<any>>;
     sidebarClosed?: boolean;
-}> = ({ children, selected = false, icon, sidebarClosed = false }) => {
+    onClick?: () => void;
+}> = ({ children, selected = false, icon, sidebarClosed = false, onClick }) => {
     return (
         <Button
             // leftIcon={icon}
@@ -18,6 +19,7 @@ const NavButton: React.FC<{
             rounded="2xl"
             justifyContent={sidebarClosed ? "center" : "start"}
             color={selected ? "white" : "auto"}
+            onClick={onClick}
         >
             <Text my="auto">{icon}</Text>
             <Text

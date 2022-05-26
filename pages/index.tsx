@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
 import React from "react";
 

@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/icons";
 import { Button, chakra, Flex, Icon, IconButton } from "@chakra-ui/react";
 import { Navbutton } from "@components/button";
-import { useState } from "react";
+import { JSXElementConstructor, ReactElement, useMemo, useState } from "react";
 import {
     AiOutlineAlignLeft,
     AiOutlineAlignRight,
@@ -16,8 +16,51 @@ import {
 import { MdOutlineExplore } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
+interface NavButtonType {
+    title: string;
+    icon: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+    selected: boolean;
+    id: number;
+}
+
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
+
+    const [buttons, setButtons] = useState<Array<NavButtonType>>([
+        { title: "Home", icon: <AiOutlineHome />, selected: true, id: 0 },
+        {
+            title: "Explore",
+            icon: <AiOutlineSave />,
+            selected: false,
+            id: 1,
+        },
+        { title: "Saved", icon: <AiOutlineSave />, selected: false, id: 2 },
+        { title: "Profile", icon: <CgProfile />, selected: false, id: 3 },
+    ]);
+
+    const onNavBtnClick = (id: number) => {
+        setButtons((prev) => {
+            const temp: Array<NavButtonType> = [];
+            prev.forEach((e) => {
+                if (e.id === id) {
+                    temp.push({
+                        title: e.title,
+                        icon: e.icon,
+                        selected: true,
+                        id: e.id,
+                    });
+                } else {
+                    temp.push({
+                        title: e.title,
+                        icon: e.icon,
+                        selected: false,
+                        id: e.id,
+                    });
+                }
+            });
+            return temp;
+        });
+    };
 
     const toggleClose = () => {
         setIsOpen((prev) => !prev);
@@ -61,28 +104,24 @@ const Sidebar = () => {
                     {isOpen ? (
                         <Icon as={AiOutlineAlignLeft} />
                     ) : (
-                        // <AiOutlineAlignRight />
                         <Icon as={AiOutlineAlignRight} />
                     )}
                 </Button>
             </Flex>
             <Flex gap={3} mt={5} align="center" direction="column">
-                <Navbutton
-                    selected
-                    sidebarClosed={!isOpen}
-                    icon={<AiOutlineHome />}
-                >
-                    Home
-                </Navbutton>
-                <Navbutton sidebarClosed={!isOpen} icon={<MdOutlineExplore />}>
-                    Explore
-                </Navbutton>
-                <Navbutton sidebarClosed={!isOpen} icon={<AiOutlineSave />}>
-                    Saved
-                </Navbutton>
-                <Navbutton sidebarClosed={!isOpen} icon={<CgProfile />}>
-                    Profile
-                </Navbutton>
+                {buttons.map((e) => (
+                    <Navbutton
+                        selected={e.selected}
+                        sidebarClosed={!isOpen}
+                        icon={e.icon}
+                        onClick={() => {
+                            onNavBtnClick(e.id);
+                        }}
+                        key={e.id}
+                    >
+                        {e.title}
+                    </Navbutton>
+                ))}
             </Flex>
         </Flex>
     );
