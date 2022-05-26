@@ -2,7 +2,13 @@ import { Avatar, Button, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-const NFTCard = () => {
+const NFTCard: React.FC<{
+    image: string | undefined;
+    alt: string;
+    title: string;
+    avatar: string;
+    creatorName: string;
+}> = ({ alt, avatar, creatorName, image, title }) => {
     const [liked, setLiked] = useState<boolean>(false);
     return (
         <Flex
@@ -23,12 +29,12 @@ const NFTCard = () => {
                 fit="cover"
                 w="90%"
                 h="70%"
-                src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWJzdHJhY3R8ZW58MHx8MHx8&auto=format&fit=crop&w=600"
+                src={image}
                 rounded="xl"
             />
             <Flex pr={5} justify="space-between" mb={1} align="center">
                 <Text mx={4} mb={1} mt={2} fontWeight="600" fontSize="xl">
-                    Abstract Art
+                    {title}
                 </Text>
                 <Button
                     variant="ghost"
@@ -51,13 +57,10 @@ const NFTCard = () => {
             </Flex>
 
             <Flex align="center" mt={0} mx={4}>
-                <Avatar
-                    src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153"
-                    size="sm"
-                />
+                <Avatar src={avatar} size="sm" />
                 <Flex justify="center" ml={4} direction="column">
                     <Text fontSize="sm" my={0} fontWeight="600">
-                        John Doe
+                        {creatorName}
                     </Text>
                     <Text color="gray.500" fontSize="sm" my={0}>
                         Creator
