@@ -12,6 +12,7 @@ import {
     AiOutlineAlignRight,
     AiOutlineHome,
     AiOutlineSave,
+    AiOutlineWallet,
 } from "react-icons/ai";
 import { MdOutlineExplore } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
@@ -36,6 +37,7 @@ const Sidebar = () => {
         },
         { title: "Saved", icon: <AiOutlineSave />, selected: false, id: 2 },
         { title: "Profile", icon: <CgProfile />, selected: false, id: 3 },
+        { title: "Wallet", icon: <AiOutlineWallet />, selected: false, id: 4 },
     ]);
 
     const onNavBtnClick = (id: number) => {
