@@ -10,8 +10,12 @@ const NFTCard = () => {
             // align="center"
             h="350px"
             bg="bg.2"
+            position="relative"
+            _hover={{ transform: "translateY(-5px)" }}
             pt={2}
+            transition="transform 100ms linear"
             rounded="xl"
+            cursor="pointer"
             direction="column"
         >
             <Image
@@ -36,6 +40,7 @@ const NFTCard = () => {
                     rounded="full"
                     p={0}
                     onClick={() => setLiked((prev) => !prev)}
+                    transition="all 100ms linear"
                 >
                     {!liked ? (
                         <AiOutlineHeart size="20px" />

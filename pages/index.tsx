@@ -12,7 +12,6 @@ const Home: React.FC = () => {
             </Head>
             <Layout>
                 <Flex color="white" px={9}>
-                    123
                     <NFTCard />
                 </Flex>
             </Layout>
