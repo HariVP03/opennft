@@ -16,51 +16,64 @@ import {
 } from "react-icons/ai";
 import { MdOutlineExplore } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { useRouter } from "next/router";
 
 interface NavButtonType {
     title: string;
     icon: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
     selected: boolean;
     id: number;
+    link: string;
 }
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
+    const router = useRouter();
+
     const [buttons, setButtons] = useState<Array<NavButtonType>>([
-        { title: "Home", icon: <AiOutlineHome />, selected: true, id: 0 },
+        {
+            title: "Home",
+            icon: <AiOutlineHome />,
+            selected: router.asPath === "/",
+            id: 0,
+            link: "/",
+        },
         {
             title: "Explore",
             icon: <AiOutlineSave />,
-            selected: false,
+            selected: router.asPath === "/explore",
             id: 1,
+            link: "/explore",
         },
-        { title: "Saved", icon: <AiOutlineSave />, selected: false, id: 2 },
-        { title: "Profile", icon: <CgProfile />, selected: false, id: 3 },
-        { title: "Wallet", icon: <AiOutlineWallet />, selected: false, id: 4 },
+        {
+            title: "Saved",
+            icon: <AiOutlineSave />,
+            selected: router.asPath === "/saved",
+            id: 2,
+            link: "/saved",
+        },
+        {
+            title: "Profile",
+            icon: <CgProfile />,
+            selected: router.asPath === "/profile",
+            id: 3,
+            link: "/profile",
+        },
+        {
+            title: "Wallet",
+            icon: <AiOutlineWallet />,
+            selected: router.asPath === "/wallet",
+            id: 4,
+            link: "/wallet",
+        },
     ]);
 
     const onNavBtnClick = (id: number) => {
-        setButtons((prev) => {
-            const temp: Array<NavButtonType> = [];
-            prev.forEach((e) => {
-                if (e.id === id) {
-                    temp.push({
-                        title: e.title,
-                        icon: e.icon,
-                        selected: true,
-                        id: e.id,
-                    });
-                } else {
-                    temp.push({
-                        title: e.title,
-                        icon: e.icon,
-                        selected: false,
-                        id: e.id,
-                    });
-                }
-            });
-            return temp;
+        buttons.forEach((e) => {
+            if (e.id === id) {
+                router.push(e.link);
+            }
         });
     };
 
