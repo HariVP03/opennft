@@ -17,6 +17,7 @@ import {
 import { MdOutlineExplore } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useRouter } from "next/router";
+import { useSidebar } from "@recoil/hooks";
 
 interface NavButtonType {
     title: string;
@@ -27,7 +28,8 @@ interface NavButtonType {
 }
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    // const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isOpen, { toggle }] = useSidebar();
 
     const router = useRouter();
 
@@ -77,10 +79,6 @@ const Sidebar = () => {
         });
     };
 
-    const toggleClose = () => {
-        setIsOpen((prev) => !prev);
-    };
-
     return (
         <Flex
             bg="bg.2"
@@ -115,7 +113,7 @@ const Sidebar = () => {
                     _focus={{ outline: "0" }}
                     bg="transparent"
                     _hover={{ color: "white" }}
-                    onClick={toggleClose}
+                    onClick={toggle}
                 >
                     {isOpen ? (
                         <Icon as={AiOutlineAlignLeft} />
