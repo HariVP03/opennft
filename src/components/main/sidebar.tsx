@@ -86,6 +86,7 @@ const Sidebar = () => {
             bg="bg.2"
             transition="all 100ms linear"
             w={isOpen ? "15vw" : "3vw"}
+            minW={isOpen ? "150px" : "50px"}
             h="100vh"
             color="gray.400"
             direction="column"
