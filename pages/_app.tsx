@@ -6,11 +6,12 @@ import "@styles/global.scss";
 import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+    const AnyComponent = Component as any;
     return (
         <ChakraProvider theme={theme}>
             <RecoilRoot>
                 <DarkMode>
-                    <Component {...pageProps} />
+                    <AnyComponent {...pageProps} />
                 </DarkMode>
             </RecoilRoot>
         </ChakraProvider>

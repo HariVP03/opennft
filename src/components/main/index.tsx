@@ -6,11 +6,39 @@ import {
     InputGroup,
     InputLeftElement,
 } from "@chakra-ui/react";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useMemo, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import Sidebar from "./sidebar";
 
+interface HeadingType {
+    route: string;
+    heading: string;
+}
+
 export const Layout: React.FC = ({ children }) => {
+    const router = useRouter();
+    const [heading, setHeading] = useState<string | undefined>();
+
+    const Headings: Array<HeadingType> = useMemo(
+        () => [
+            { route: "/", heading: "Dashboard" },
+            { route: "/explore", heading: "Explore" },
+            { route: "/saved", heading: "Saved" },
+            { route: "/profile", heading: "Profile" },
+            { route: "/wallet", heading: "Wallet" },
+        ],
+        [],
+    );
+
+    useEffect(() => {
+        Headings.forEach((e) => {
+            if (e.route === router.asPath) {
+                setHeading(e.heading);
+            }
+        });
+    }, []);
+
     return (
         <>
             <Flex bg="bg.1">
@@ -32,7 +60,7 @@ export const Layout: React.FC = ({ children }) => {
                             fontSize="2xl"
                             my="auto"
                         >
-                            Dashboard
+                            {heading}
                         </chakra.h1>
 
                         <InputGroup
