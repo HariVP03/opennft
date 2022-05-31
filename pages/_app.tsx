@@ -4,14 +4,25 @@ import { ChakraProvider, DarkMode } from "@chakra-ui/react";
 import theme from "@definitions/chakra/theme";
 import "@styles/global.scss";
 import { RecoilRoot } from "recoil";
+import { Config, DAppProvider, Mumbai } from "@usedapp/core";
+import { getDefaultProvider } from "ethers";
+import { alchemyApiKey } from "src/providers/alchemy";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+    const config: Config = {
+        readOnlyChainId: Mumbai.chainId,
+        readOnlyUrls: {
+            [Mumbai.chainId]: alchemyApiKey,
+        },
+    };
     const AnyComponent = Component as any;
     return (
         <ChakraProvider theme={theme}>
             <RecoilRoot>
                 <DarkMode>
-                    <AnyComponent {...pageProps} />
+                    <DAppProvider config={config}>
+                        <AnyComponent {...pageProps} />
+                    </DAppProvider>
                 </DarkMode>
             </RecoilRoot>
         </ChakraProvider>
