@@ -31,7 +31,7 @@ const Wallet = () => {
                             size="sm"
                             display={account ? "auto" : "none"}
                         >
-                            Disconnect
+                            Deactivate
                         </Button>
                     </Flex>
                 </Layout>
