@@ -5,7 +5,6 @@ import theme from "@definitions/chakra/theme";
 import "@styles/global.scss";
 import { RecoilRoot } from "recoil";
 import { Config, DAppProvider, Mumbai } from "@usedapp/core";
-import { getDefaultProvider } from "ethers";
 import { alchemyApiKey } from "src/providers/alchemy";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {

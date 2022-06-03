@@ -18,6 +18,7 @@ import { MdOutlineExplore } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useRouter } from "next/router";
 import { useSidebar } from "@recoil/hooks";
+import { connectToMetamask } from "src/utils/web3";
 
 interface NavButtonType {
     title: string;
@@ -25,6 +26,7 @@ interface NavButtonType {
     selected: boolean;
     id: number;
     link: string;
+    onClick?: () => void;
 }
 
 const Sidebar = () => {

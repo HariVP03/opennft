@@ -1,8 +1,10 @@
-import { chakra, Flex } from "@chakra-ui/react";
+import { Button, chakra, Flex } from "@chakra-ui/react";
 import { Layout } from "@components/main";
+import { useEthers } from "@usedapp/core";
 import Head from "next/head";
 
 const Wallet = () => {
+    const { activateBrowserWallet } = useEthers();
     return (
         <>
             <Head>
@@ -10,7 +12,15 @@ const Wallet = () => {
             </Head>
             <chakra.main>
                 <Layout>
-                    <Flex px={9}>sex</Flex>
+                    <Flex px={9}>
+                        <Button
+                            onClick={() => {
+                                activateBrowserWallet();
+                            }}
+                        >
+                            Connect to Metamask
+                        </Button>
+                    </Flex>
                 </Layout>
             </chakra.main>
         </>
