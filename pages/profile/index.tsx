@@ -3,13 +3,20 @@ import { Layout } from "@components/main";
 import { useEthers } from "@usedapp/core";
 import { ethers } from "@usedapp/core/node_modules/ethers";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { useCopy } from "src/hooks";
+import { getDicebear } from "src/utils";
 import { truncateAddress } from "src/utils/web3";
 
 const Profile = () => {
     const { account } = useEthers();
-    const { copyTarget, hasCopied } = useCopy(account || "");
+    const { copyTarget } = useCopy(account || "");
+    const [avatar, setAvatar] = useState<string | undefined>();
+
+    useEffect(() => {
+        setAvatar(getDicebear(account || ""));
+    }, [account]);
 
     return (
         <>
@@ -30,12 +37,14 @@ const Profile = () => {
                             <Avatar
                                 fontSize="200px"
                                 size="2xl"
-                                icon={<CgProfile />}
+                                bg="white"
+                                border="3px solid black"
+                                src={avatar}
                                 p={0}
                             />
                             <Flex justify="center" direction="column">
                                 <Text
-                                    px={2}
+                                    // px={2}
                                     my={0}
                                     fontWeight="500"
                                     fontSize="xl"
