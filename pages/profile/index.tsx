@@ -1,13 +1,15 @@
-import { Avatar, chakra, Flex, Text } from "@chakra-ui/react";
+import { Avatar, chakra, Flex, Text, useToast } from "@chakra-ui/react";
 import { Layout } from "@components/main";
 import { useEthers } from "@usedapp/core";
 import { ethers } from "@usedapp/core/node_modules/ethers";
 import Head from "next/head";
 import { CgProfile } from "react-icons/cg";
+import { useCopy } from "src/hooks";
 import { truncateAddress } from "src/utils/web3";
 
 const Profile = () => {
-    // const {} = useEthers();
+    const { account } = useEthers();
+    const { copyTarget, hasCopied } = useCopy(account || "");
 
     return (
         <>
@@ -47,6 +49,7 @@ const Profile = () => {
                                     rounded="full"
                                     px={2}
                                     py={1}
+                                    onClick={copyTarget}
                                     cursor="pointer"
                                     w="fit-content"
                                     color="gray.600"
