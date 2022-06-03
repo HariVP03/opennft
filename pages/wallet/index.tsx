@@ -4,7 +4,8 @@ import { useEthers } from "@usedapp/core";
 import Head from "next/head";
 
 const Wallet = () => {
-    const { activateBrowserWallet } = useEthers();
+    const { activateBrowserWallet, account, deactivate } = useEthers();
+
     return (
         <>
             <Head>
@@ -12,13 +13,25 @@ const Wallet = () => {
             </Head>
             <chakra.main>
                 <Layout>
-                    <Flex px={9}>
+                    <Flex gap={5} align="center" px={9}>
                         <Button
                             onClick={() => {
                                 activateBrowserWallet();
                             }}
+                            isDisabled={Boolean(account)}
                         >
-                            Connect to Metamask
+                            {account
+                                ? "Account already connected"
+                                : "Connect to Metamask"}
+                        </Button>
+                        <Button
+                            onClick={() => {
+                                deactivate();
+                            }}
+                            size="sm"
+                            display={account ? "auto" : "none"}
+                        >
+                            Disconnect
                         </Button>
                     </Flex>
                 </Layout>
