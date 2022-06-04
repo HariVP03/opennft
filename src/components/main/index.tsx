@@ -52,6 +52,7 @@ export const Layout: React.FC = ({ children }) => {
                     transition="all 100ms linear"
                     direction="column"
                     color="white"
+                    minH="100vh"
                 >
                     <Flex
                         justify="space-between"
