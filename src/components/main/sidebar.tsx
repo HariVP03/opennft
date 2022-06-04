@@ -10,6 +10,7 @@ import { JSXElementConstructor, ReactElement, useMemo, useState } from "react";
 import {
     AiOutlineAlignLeft,
     AiOutlineAlignRight,
+    AiOutlineCompass,
     AiOutlineHome,
     AiOutlineSave,
     AiOutlineWallet,
@@ -45,7 +46,7 @@ const Sidebar = () => {
         },
         {
             title: "Explore",
-            icon: <AiOutlineSave />,
+            icon: <AiOutlineCompass />,
             selected: router.asPath === "/explore",
             id: 1,
             link: "/explore",
