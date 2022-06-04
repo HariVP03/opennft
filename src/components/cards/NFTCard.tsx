@@ -29,6 +29,7 @@ const NFTCard: React.FC<{
                 fit="cover"
                 w="90%"
                 h="70%"
+                objectPosition="center"
                 src={image}
                 rounded="xl"
             />

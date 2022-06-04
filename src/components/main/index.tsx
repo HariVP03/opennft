@@ -6,6 +6,7 @@ import {
     InputGroup,
     InputLeftElement,
 } from "@chakra-ui/react";
+import { useSidebar } from "@recoil/hooks";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -39,11 +40,19 @@ export const Layout: React.FC = ({ children }) => {
         });
     }, []);
 
+    const [isOpen] = useSidebar();
+
     return (
         <>
             <Flex bg="bg.1">
                 <Sidebar />
-                <Flex w="full" direction="column" color="white">
+                <Flex
+                    ml={isOpen ? "15vw" : "3vw"}
+                    w="full"
+                    transition="all 100ms linear"
+                    direction="column"
+                    color="white"
+                >
                     <Flex
                         justify="space-between"
                         w="full"
