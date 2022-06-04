@@ -1,4 +1,6 @@
 import { useClipboard, useToast } from "@chakra-ui/react";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import { getDicebear } from "src/utils";
 
 export const useCopy = (target: string) => {
     const copyToast = useToast({
@@ -13,4 +15,13 @@ export const useCopy = (target: string) => {
     };
 
     return { copyTarget, hasCopied };
+};
+
+export const useDicebear = (
+    setState: Dispatch<SetStateAction<string | undefined>>,
+    seed: string | undefined,
+) => {
+    useEffect(() => {
+        setState(getDicebear(seed || ""));
+    }, [seed]);
 };

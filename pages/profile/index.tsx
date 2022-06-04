@@ -1,22 +1,18 @@
-import { Avatar, chakra, Flex, Text, useToast } from "@chakra-ui/react";
+import { Avatar, chakra, Flex, Text } from "@chakra-ui/react";
 import { Layout } from "@components/main";
 import { useEthers } from "@usedapp/core";
-import { ethers } from "@usedapp/core/node_modules/ethers";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { CgProfile } from "react-icons/cg";
-import { useCopy } from "src/hooks";
-import { getDicebear } from "src/utils";
+import { useState } from "react";
+import { useCopy, useDicebear } from "src/hooks";
 import { truncateAddress } from "src/utils/web3";
 
 const Profile = () => {
     const { account } = useEthers();
-    const { copyTarget } = useCopy(account || "");
-    const [avatar, setAvatar] = useState<string | undefined>();
 
-    useEffect(() => {
-        setAvatar(getDicebear(account || ""));
-    }, [account]);
+    const [avatar, setAvatar] = useState<string | undefined>();
+    const { copyTarget } = useCopy(account || "");
+
+    useDicebear(setAvatar, account);
 
     return (
         <>
@@ -42,6 +38,7 @@ const Profile = () => {
                                 src={avatar}
                                 p={0}
                             />
+
                             <Flex justify="center" direction="column">
                                 <Text
                                     // px={2}
