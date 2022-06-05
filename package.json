@@ -29,6 +29,7 @@
         "sass": "^1.32.5"
     },
     "devDependencies": {
+        "@openzeppelin/contracts": "^4.6.0",
         "@types/node": "^14.14.13",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
