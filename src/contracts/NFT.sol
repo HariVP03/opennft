@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 contract OpenNFT is ERC1155, Ownable, ERC1155Supply {
-    constructor() ERC1155("") {}
+    constructor() ERC1155("https://gateway.pinata.cloud/ipfs/{id}") {}
 
     function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
