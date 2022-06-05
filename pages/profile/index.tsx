@@ -24,6 +24,7 @@ const Profile = () => {
                 <Layout>
                     <Flex direction="column" px={9}>
                         <Image
+                            mt={3}
                             w="98%"
                             h="200px"
                             bg="blue.300"
@@ -73,7 +74,7 @@ const Profile = () => {
                         </Flex>
                         <Flex direction="column" mt={8}>
                             <chakra.h1 fontSize="2xl">Owned NFTs</chakra.h1>
-                            <Flex gap={10} flexWrap="wrap">
+                            <Flex gap="2%" flexWrap="wrap">
                                 <NFTCard
                                     title="Abstract Art"
                                     alt="Abstract art"

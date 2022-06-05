@@ -12,8 +12,8 @@ const NFTCard: React.FC<{
     const [liked, setLiked] = useState<boolean>(false);
     return (
         <Flex
-            w="280px"
-            // align="center"
+            w="23%"
+            minW="250px"
             h="350px"
             bg="bg.2"
             position="relative"

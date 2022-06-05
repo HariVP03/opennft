@@ -17,10 +17,10 @@ export const useCopy = (target: string) => {
     return { copyTarget, hasCopied };
 };
 
-export const useDicebear = (
+export const useDicebear: (
     setState: Dispatch<SetStateAction<string | undefined>>,
     seed: string | undefined,
-) => {
+) => void = (setState, seed) => {
     useEffect(() => {
         setState(getDicebear(seed || ""));
     }, [seed]);

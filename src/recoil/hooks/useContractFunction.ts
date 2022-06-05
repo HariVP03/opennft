@@ -17,7 +17,7 @@ export const useContract: (
             resetState: () => void;
         };
     },
-] = (address: string, abi: any) => {
+] = (address: string, abi: Array<string>) => {
     const contractInterface = new utils.Interface(abi);
 
     const contract = useContractInstance(address, contractInterface);
