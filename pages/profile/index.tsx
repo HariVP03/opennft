@@ -1,4 +1,12 @@
-import { Avatar, chakra, Flex, Text, Image, Spinner } from "@chakra-ui/react";
+import {
+    Avatar,
+    chakra,
+    Flex,
+    Text,
+    Image,
+    Spinner,
+    useToast,
+} from "@chakra-ui/react";
 import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
 import { useEthers } from "@usedapp/core";
@@ -13,8 +21,17 @@ const Profile = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if (!account) router.push("/wallet");
+        if (!account) {
+            router.push("/wallet");
+            walletNotFound();
+        }
     }, [account]);
+
+    const walletNotFound = useToast({
+        title: "Cannot access profile",
+        status: "info",
+        description: "Connect your wallet to access your profile",
+    });
 
     const [avatar, setAvatar] = useState<string | undefined>();
     const { copyTarget } = useCopy(account || "");
