@@ -51,13 +51,13 @@ const Sidebar = () => {
             id: 1,
             link: "/explore",
         },
-        {
-            title: "Saved",
-            icon: <AiOutlineSave />,
-            selected: router.asPath === "/saved",
-            id: 2,
-            link: "/saved",
-        },
+        // {
+        //     title: "Saved",
+        //     icon: <AiOutlineSave />,
+        //     selected: router.asPath === "/saved",
+        //     id: 2,
+        //     link: "/saved",
+        // },
         {
             title: "Profile",
             icon: <CgProfile />,
