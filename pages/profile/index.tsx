@@ -6,6 +6,7 @@ import {
     Image,
     Spinner,
     useToast,
+    Button,
 } from "@chakra-ui/react";
 import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
@@ -46,13 +47,7 @@ const Profile = () => {
             <chakra.main>
                 <Layout>
                     {!account ? (
-                        <Flex
-                            w="full"
-                            // minH="full"
-                            h="90vh"
-                            justify="center"
-                            align="center"
-                        >
+                        <Flex w="full" h="90vh" justify="center" align="center">
                             <Spinner size="xl" />
                         </Flex>
                     ) : (
@@ -78,7 +73,11 @@ const Profile = () => {
                                     p={0}
                                 />
 
-                                <Flex justify="center" direction="column">
+                                <Flex
+                                    mt={8}
+                                    justify="center"
+                                    direction="column"
+                                >
                                     <Text
                                         // px={2}
                                         my={0}
@@ -102,6 +101,15 @@ const Profile = () => {
                                     >
                                         {truncateAddress(account || "")}
                                     </Text>
+                                    <Button
+                                        // p={2}
+                                        py={1}
+                                        h="fit-content"
+                                        mt={2}
+                                        w="fit-content"
+                                    >
+                                        Edit Profile
+                                    </Button>
                                 </Flex>
                             </Flex>
                             <Flex direction="column" mt={8}>
