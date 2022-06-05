@@ -3,15 +3,8 @@ import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
 import Head from "next/head";
 import React, { useEffect } from "react";
-import { useTestAuth } from "src/hooks/ipfs";
 
 const Home: React.FC = () => {
-    useEffect(() => {
-        const r = useTestAuth();
-        r.then((e) => {
-            console.log(e);
-        });
-    }, []);
     return (
         <>
             <Head>

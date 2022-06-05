@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { IPFS_JWT } from "src/providers/ipfs";
 
-export const useTestAuth = () => {
+const testConnection = () => {
     const config: AxiosRequestConfig = {
         method: "GET",
         url: "https://api.pinata.cloud/data/testAuthentication",
@@ -11,4 +11,8 @@ export const useTestAuth = () => {
     };
 
     return axios(config);
+};
+
+export const useIPFS = () => {
+    return { testConnection };
 };
