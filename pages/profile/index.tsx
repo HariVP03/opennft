@@ -32,6 +32,7 @@ const Profile = () => {
         title: "Cannot access profile",
         status: "info",
         description: "Connect your wallet to access your profile",
+        isClosable: true,
     });
 
     const [avatar, setAvatar] = useState<string | undefined>();

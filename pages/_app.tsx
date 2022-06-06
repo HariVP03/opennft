@@ -5,24 +5,14 @@ import theme from "@definitions/chakra/theme";
 import "@styles/global.scss";
 import { RecoilRoot } from "recoil";
 import { Config, DAppProvider, Mumbai } from "@usedapp/core";
-import { alchemyApiKey } from "src/providers/alchemy";
+import { alchemyApiKey, alchemyEndpoint } from "src/providers/alchemy";
 import { providers } from "ethers";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-    const web3Providers = {
-        alchemyProvider: new providers.AlchemyProvider(
-            {
-                chainId: Mumbai.chainId,
-                name: "maticmum",
-            },
-            alchemyApiKey,
-        ),
-    };
-
     const config: Config = {
         readOnlyChainId: Mumbai.chainId,
         readOnlyUrls: {
-            [Mumbai.chainId]: web3Providers.alchemyProvider,
+            [Mumbai.chainId]: alchemyEndpoint,
         },
     };
 
@@ -31,11 +21,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <ChakraProvider theme={theme}>
             <RecoilRoot>
-                <DarkMode>
-                    <DAppProvider config={config}>
-                        <AnyComponent {...pageProps} />
-                    </DAppProvider>
-                </DarkMode>
+                <DAppProvider config={config}>
+                    <AnyComponent {...pageProps} />
+                </DAppProvider>
             </RecoilRoot>
         </ChakraProvider>
     );
