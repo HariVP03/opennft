@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
-const Explore = ({ pageProps }) => {
+const Explore = ({ pageProps }: any) => {
     return (
         <>
             <Head>
