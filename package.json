@@ -7,13 +7,15 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'"
+        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+        "gen": "npx prisma db push"
     },
     "dependencies": {
         "@chakra-ui/icons": "^2.0.0",
         "@chakra-ui/react": "^1.1.4",
         "@emotion/react": "^11.1.4",
         "@emotion/styled": "^11.0.0",
+        "@prisma/client": "^3.15.0",
         "@usedapp/core": "^1.0.5",
         "axios": "^0.21.1",
         "ethers": "^5.6.8",
@@ -21,6 +23,7 @@
         "next": "12.0.7",
         "next-compose-plugins": "^2.2.1",
         "prettier": "^2.2.1",
+        "prisma": "^3.15.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-icons": "^4.3.1",

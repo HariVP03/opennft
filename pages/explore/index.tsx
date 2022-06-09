@@ -1,9 +1,10 @@
 import { Flex } from "@chakra-ui/react";
 import { Layout } from "@components/main";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { PrismaClient } from "@prisma/client";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 
-const Explore = () => {
+const Explore = ({ pageProps }) => {
     return (
         <>
             <Head>
@@ -17,8 +18,13 @@ const Explore = () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+    const prisma = new PrismaClient();
+    await prisma.$connect();
+
     return {
-        props: {},
+        props: {
+            pageProps: "Hello",
+        },
         revalidate: 60 * 90, // Revalidates every 1.5 hours
     };
 };
