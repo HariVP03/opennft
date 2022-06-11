@@ -19,7 +19,6 @@ const Explore = ({ pageProps }: any) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const prisma = new PrismaClient();
-    await prisma.$connect();
 
     return {
         props: {

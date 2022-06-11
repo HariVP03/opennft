@@ -12,8 +12,23 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model test {
+model NFT {
+  id      String @id @default(uuid())
+  name    String
+  uri     String @unique
+  tokenId String @unique
+}
+
+model featuredArtist {
   id   String @id @default(uuid())
-  name String
-  age  Int
+  user String
+}
+
+model User {
+  id         String @id @default(uuid())
+  name       String
+  email      String @unique
+  address    String @unique
+  profilePic String
+  bannerPic  String
 }
