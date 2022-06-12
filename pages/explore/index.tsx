@@ -17,7 +17,7 @@ const Explore = ({ pageProps }: any) => {
     );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     const prisma = new PrismaClient();
 
     return {

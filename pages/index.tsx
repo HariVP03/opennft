@@ -1,10 +1,21 @@
-import { Flex } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
+import { PrismaClient } from "@prisma/client";
+import axios from "axios";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React from "react";
 
-const Home: React.FC = () => {
+const Home: React.FC<{ pageProps: any }> = ({ pageProps }) => {
+    const func = () => {
+        axios("/api/test");
+    };
+
+    const func2 = () => {
+        axios("/api/test2");
+    };
+
     return (
         <>
             <Head>
@@ -12,6 +23,9 @@ const Home: React.FC = () => {
             </Head>
             <Layout>
                 <Flex color="white" px={9}>
+                    {JSON.stringify(pageProps)}
+                    <Button onClick={func}>Create</Button>
+                    <Button onClick={func2}>Read</Button>
                     <NFTCard
                         title="Abstract Art"
                         alt="Abstract art"
@@ -23,6 +37,18 @@ const Home: React.FC = () => {
             </Layout>
         </>
     );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+    const prisma = new PrismaClient();
+
+    const allNFTs = await prisma.nFT.findMany();
+
+    return {
+        props: {
+            pageProps: allNFTs,
+        },
+    };
 };
 
 export default Home;
