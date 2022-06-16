@@ -1,13 +1,14 @@
 import { Button, Flex } from "@chakra-ui/react";
 import NFTCard from "@components/cards/NFTCard";
 import { Layout } from "@components/main";
-import { PrismaClient } from "@prisma/client";
+import { NFT } from "@prisma/client";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
+import prisma from "src/inits/prisma.server";
 
-const Home: React.FC<{ pageProps: any }> = ({ pageProps }) => {
+const Home: React.FC<{ pageProps: NFT }> = ({ pageProps }) => {
     const func = () => {
         axios("/api/test");
     };
@@ -40,8 +41,6 @@ const Home: React.FC<{ pageProps: any }> = ({ pageProps }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const prisma = new PrismaClient();
-
     const allNFTs = await prisma.nFT.findMany();
 
     return {
